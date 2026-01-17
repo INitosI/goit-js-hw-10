@@ -1,0 +1,35 @@
+.timer-container {
+  margin: 40px auto;
+}
+
+.timer-place {
+  display: flex;
+  gap: 8px;
+  width: 298px;
+}
+
+.datetime-picker {
+  font-size: 20px;
+  flex: 1;
+}
+.timer {
+  width: fit-content;
+  display: flex;
+  gap: 25px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+}
+.value {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  translate: 0 20px;
+}
+.label {
+  display: flex;
+  font-weight: 400;
+  font-size: 20px;
+  justify-content: center;
+}

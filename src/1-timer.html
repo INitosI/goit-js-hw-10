@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Timer</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a class="back-link" href="./index.html">Go back</a>
+      </div>
+    </header>
+    <main>
+      <div class="container timer-container">
+        <div class="timer-place">
+          <input type="text" id="datetime-picker" class="datetime-picker" />
+          <button type="button" data-start>Start</button>
+        </div>
+
+        <div class="timer">
+          <div class="field">
+            <span class="value" data-days>00</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="field">
+            <span class="value" data-hours>00</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="field">
+            <span class="value" data-minutes>00</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="field">
+            <span class="value" data-seconds>00</span>
+            <span class="label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./js/1-timer.js"></script>
+  </body>
+</html>
