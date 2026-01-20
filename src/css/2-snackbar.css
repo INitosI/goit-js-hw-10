@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  max-width: 300px;
+}
+
+.delay-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cover {
+  width: 100%;
+}

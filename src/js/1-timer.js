@@ -120,9 +120,11 @@ flatpickr('#datetime-picker', options);
 
 init.startBtn.addEventListener('click', () => {
   if (timerId) return;
+
+  init.startBtn.disabled = true;
+
   timerId = setInterval(() => {
     const d = new Date();
-
     const currentDate = {
       currentYear: d.getFullYear(),
       currentMonth: d.getMonth(),
@@ -132,10 +134,28 @@ init.startBtn.addEventListener('click', () => {
       currentSeconds: d.getSeconds(),
     };
 
-    const dateDifference = convertMs(userSelectedDate, currentDate);
-    init.daysLeft.textContent = addLeadingZero(dateDifference.days);
-    init.hoursLeft.textContent = addLeadingZero(dateDifference.hours);
-    init.minutesLeft.textContent = addLeadingZero(dateDifference.minutes);
-    init.secondsLeft.textContent = addLeadingZero(dateDifference.seconds);
+    const t = convertMs(userSelectedDate, currentDate);
+
+    if (t.days <= 0 && t.hours <= 0 && t.minutes <= 0 && t.seconds <= 0) {
+      clearInterval(timerId);
+      timerId = null;
+
+      init.daysLeft.textContent = '00';
+      init.hoursLeft.textContent = '00';
+      init.minutesLeft.textContent = '00';
+      init.secondsLeft.textContent = '00';
+
+      iziToast.success({
+        title: 'Done',
+        message: 'Time is up!',
+        position: 'topRight',
+      });
+      return;
+    }
+
+    init.daysLeft.textContent = addLeadingZero(t.days);
+    init.hoursLeft.textContent = addLeadingZero(t.hours);
+    init.minutesLeft.textContent = addLeadingZero(t.minutes);
+    init.secondsLeft.textContent = addLeadingZero(t.seconds);
   }, 1000);
 });
