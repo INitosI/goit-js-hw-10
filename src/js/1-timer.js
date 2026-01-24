@@ -57,6 +57,7 @@ function convertMs(selectedDate = {}, currentDate = {}) {
 
 //ініціалізація елементів з розмітки
 const init = {
+  datetimePicker: document.querySelector('#datetime-picker'),
   startBtn: document.querySelector('[data-start]'),
   daysLeft: document.querySelector('[data-days]'),
   hoursLeft: document.querySelector('[data-hours]'),
@@ -122,6 +123,7 @@ init.startBtn.addEventListener('click', () => {
   if (timerId) return;
 
   init.startBtn.disabled = true;
+  init.datetimePicker.disabled = true;
 
   timerId = setInterval(() => {
     const d = new Date();
@@ -139,6 +141,8 @@ init.startBtn.addEventListener('click', () => {
     if (t.days <= 0 && t.hours <= 0 && t.minutes <= 0 && t.seconds <= 0) {
       clearInterval(timerId);
       timerId = null;
+      init.datetimePicker.disabled = false;
+      init.startBtn.disabled = true; //для впевненності, щоб не можна було запустити таймер без вибору дати
 
       init.daysLeft.textContent = '00';
       init.hoursLeft.textContent = '00';
